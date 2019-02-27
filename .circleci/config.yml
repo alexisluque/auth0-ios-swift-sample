@@ -11,8 +11,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          cd 00-Login
           brew install swiftlint
-          sudo apt-get update
           sudo gem install bundler
           bundle install --without development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
