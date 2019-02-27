@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run: |
           brew install swiftlint
-          bundle install --without=development
+          bundle install --without development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
       - run:
           name: Bootstrap
